@@ -1,1 +1,77 @@
+/* General web page styling to make it look like a physical document */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 850px; /* Constrains the width to look like a piece of paper */
+    margin: 40px auto; /* Centers the resume on the screen */
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds a nice shadow on the web */
+}
 
+/* Header and typography styling */
+header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #2c3e50;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.contact-links {
+    margin-top: 15px;
+}
+
+.contact-links a {
+    color: #0073b1; /* LinkedIn Blue */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Button styling for the web */
+.print-button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.print-button:hover {
+    background-color: #1a252f;
+}
+
+/* --- THE MAGIC PART: PRINT SPECIFIC STYLES --- */
+/* These rules only apply when the user clicks "Download as PDF" */
+@media print {
+    body {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none; /* Removes the web shadow for the PDF */
+    }
+
+    /* We hide the print button in the PDF so it doesn't show up on the paper */
+    .print-button {
+        display: none;
+    }
+
+    /* Optional: Remove the " | " separator if the button is hidden */
+    .contact-links span {
+        display: none; 
+    }
+}
